@@ -1,0 +1,222 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "John",
+      "lastName": "Doe",
+      "email": "jsondoe@gmail.com",
+      "birthDate": "2000-06-01",
+      "address": "123 Main St",
+      "phone": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "birthDate": "1999-06-01",
+      "address": "456 Elm St",
+      "phone": "987-654-3210"
+    },
+    {
+      "id": 3,
+      "name": "Michael",
+      "lastName": "Johnson",
+      "email": "michael.williams@x.dummyjson.com",
+      "birthDate": "2003-06-01",
+      "address": "789 Park Ave",
+      "phone": "321-654-9870"
+    },
+    {
+      "id": 4,
+      "name": "Sarah",
+      "lastName": "Davis",
+      "email": "sarah.davis@x.dummyjson.com",
+      "birthDate": "2004-06-01",
+      "address": "626 Main Street",
+      "phone": "+81 965-431-3024"
+    },
+    {
+      "id": 5,
+      "name": "Emily",
+      "lastName": "Williams",
+      "email": "emily.davis@x.dummyjson.com",
+      "birthDate": "2005-06-01",
+      "address": "385 Fifth Street",
+      "phone": "+49 258-627-6644"
+    },
+    {
+      "id": 6,
+      "name": "David",
+      "lastName": "Lee",
+      "email": "david.lee@x.dummyjson.com",
+      "birthDate": "2006-06-01",
+      "address": "274 Elm Street",
+      "phone": "+44 789-654-3210"
+    },
+    {
+      "id": 7,
+      "name": "Michael",
+      "lastName": "Wilson",
+      "email": "michael.wilson@x.dummyjson.com",
+      "birthDate": "2006-07-01",
+      "address": "174 Elm Street",
+      "phone": "+654-3210"
+    },
+    {
+      "id": 8,
+      "name": "Sarah",
+      "lastName": "Thompson",
+      "email": "sarah.thompson@x.dummyjson.com",
+      "birthDate": "2006-07-01",
+      "address": "567 Park Avenue",
+      "phone": "+358 123-456-7890"
+    },
+    {
+      "id": 9,
+      "name": "David",
+      "lastName": "Wilson",
+      "email": "david.wilson@x.dummyjson.com",
+      "birthDate": "2006-11-01",
+      "address": "1642 Ninth Street",
+      "phone": "+81 210-652-2785"
+    },
+    {
+      "id": 10,
+      "name": "Sarah",
+      "lastName": "Lee",
+      "email": "sarah.lee@x.dummyjson.com",
+      "birthDate": "2006-11-12",
+      "address": "123 Main Street",
+      "phone": "+55 123-456-7890"
+    },
+    {
+      "id": 11,
+      "name": "David",
+      "lastName": "Thompson",
+      "email": "david.thompson@x.dummyjson.com",
+      "birthDate": "2006-01-12",
+      "address": "456 Elm Street",
+      "phone": "+62 812-345-6789"
+    },
+    {
+      "id": 12,
+      "name": "Michael",
+      "lastName": "Thompson",
+      "email": "michael.thompson@x.dummyjson.com",
+      "birthDate": "2006-08-12",
+      "address": "789 Park Ave",
+      "phone": "+44 789-654-3210"
+    },
+    {
+      "name": "Loren",
+      "lastName": "Garcia Guerrero",
+      "email": "lore1@gmail.com",
+      "birthDate": "2005-02-12",
+      "address": "Street 4",
+      "phone": "6546546545",
+      "id": 13
+    },
+    {
+      "name": "Ruth",
+      "lastName": "Uribe Garcia",
+      "email": "ryth@gmail.com",
+      "birthDate": "2004-02-24",
+      "address": "Street7",
+      "phone": "465465465",
+      "id": 14
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Mr. Smith",
+      "age": 50,
+      "subjects": [
+        "Math",
+        "Science",
+        "English"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ms. Johnson",
+      "age": 48,
+      "subjects": [
+        "History",
+        "Geography",
+        "French"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Mrs. Davis",
+      "age": 52,
+      "subjects": [
+        "Computer Science",
+        "Physics",
+        "Chemistry"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dr. Williams",
+      "age": 60,
+      "subjects": [
+        "Biology",
+        "Psychology",
+        "Anthropology"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Prof. Brown",
+      "age": 65,
+      "subjects": [
+        "Art",
+        "Music",
+        "Literature"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Dr. Garcia",
+      "age": 70,
+      "subjects": [
+        "Geography",
+        "Economics",
+        "Political Science"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Mrs. Wilson",
+      "age": 58,
+      "subjects": [
+        "Chemistry",
+        "Physics",
+        "Biology"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Ms. Taylor",
+      "age": 56,
+      "subjects": [
+        "Math",
+        "English",
+        "French"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Mr. Anderson",
+      "age": 62,
+      "subjects": [
+        "History",
+        "Computer Science",
+        "Anthropology"
+      ]
+    }
+  ]
+}
