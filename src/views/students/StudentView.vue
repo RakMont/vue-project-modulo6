@@ -11,7 +11,7 @@
       <BModal v-if="showEditModal" v-model="showEditModal" hide-footer centered title="Edit Student">
       <FormStudentView :updateStudent="updateStudent" @on-update="onUpdate($event)"></FormStudentView></BModal>
       <p></p>
-    <BTableSimple responsive>
+    <BTableSimple responsive bordered>
       <BThead variant="dark">
         <BTr>
           <BTh>#</BTh>
@@ -36,7 +36,7 @@
         </BTr>
         
       </BTbody>
-      <BTfoot>
+      <!-- <BTfoot>
         <BTr>
           <BTh sticky-column>Footer</BTh>
           <BTh>Heading 1</BTh>
@@ -44,7 +44,7 @@
           <BTh>Heading 3</BTh>
           <BTh>Heading 4</BTh>
         </BTr>
-      </BTfoot>
+      </BTfoot>-->
     </BTableSimple>
   </div>
   

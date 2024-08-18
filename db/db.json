@@ -125,14 +125,21 @@
       "address": "Street7",
       "phone": "465465465",
       "id": 14
+    },
+    {
+      "name": "Economics",
+      "pNumber": "2",
+      "beginsAt": "2024-02-12",
+      "endsAt": "2024-12-12",
+      "teacherId": 1,
+      "id": 15
     }
   ],
   "teachers": [
     {
       "id": 1,
       "name": "Mr. Smith",
-      "age": 50,
-      "subjects": [
+      "subjectsSelected": [
         "Math",
         "Science",
         "English"
@@ -141,8 +148,7 @@
     {
       "id": 2,
       "name": "Ms. Johnson",
-      "age": 48,
-      "subjects": [
+      "subjectsSelected": [
         "History",
         "Geography",
         "French"
@@ -151,8 +157,7 @@
     {
       "id": 3,
       "name": "Mrs. Davis",
-      "age": 52,
-      "subjects": [
+      "subjectsSelected": [
         "Computer Science",
         "Physics",
         "Chemistry"
@@ -161,8 +166,7 @@
     {
       "id": 4,
       "name": "Dr. Williams",
-      "age": 60,
-      "subjects": [
+      "subjectsSelected": [
         "Biology",
         "Psychology",
         "Anthropology"
@@ -171,8 +175,7 @@
     {
       "id": 5,
       "name": "Prof. Brown",
-      "age": 65,
-      "subjects": [
+      "subjectsSelected": [
         "Art",
         "Music",
         "Literature"
@@ -181,8 +184,7 @@
     {
       "id": 6,
       "name": "Dr. Garcia",
-      "age": 70,
-      "subjects": [
+      "subjectsSelected": [
         "Geography",
         "Economics",
         "Political Science"
@@ -191,8 +193,7 @@
     {
       "id": 7,
       "name": "Mrs. Wilson",
-      "age": 58,
-      "subjects": [
+      "subjectsSelected": [
         "Chemistry",
         "Physics",
         "Biology"
@@ -201,8 +202,7 @@
     {
       "id": 8,
       "name": "Ms. Taylor",
-      "age": 56,
-      "subjects": [
+      "subjectsSelected": [
         "Math",
         "English",
         "French"
@@ -211,11 +211,134 @@
     {
       "id": 9,
       "name": "Mr. Anderson",
-      "age": 62,
-      "subjects": [
+      "subjectsSelected": [
         "History",
         "Computer Science",
-        "Anthropology"
+        "Anthropology",
+        "Math",
+        "Science",
+        "English"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Math",
+      "pNumber": 1,
+      "beginsAt": "2024-05-05",
+      "endsAt": "2024-08-31",
+      "teacherId": 1,
+      "studentsIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Science",
+      "pNumber": 1,
+      "beginsAt": "2024-05-05",
+      "endsAt": "2024-08-31",
+      "teacherId": 1,
+      "studentsIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 3,
+      "name": "English",
+      "pNumber": 1,
+      "beginsAt": "2024-05-05",
+      "endsAt": "2024-08-31",
+      "teacherId": 2,
+      "studentsIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 4,
+      "name": "History",
+      "pNumber": 1,
+      "beginsAt": "2024-05-05",
+      "endsAt": "2024-08-31",
+      "teacherId": 3,
+      "studentsIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Geography",
+      "pNumber": 1,
+      "beginsAt": "2024-05-05",
+      "endsAt": "2024-08-31",
+      "teacherId": 4,
+      "studentsIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
       ]
     }
   ]

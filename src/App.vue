@@ -1,8 +1,9 @@
 
 <template>
   <Navbar>
-    <router-link to="/students">students</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/students">Students</router-link>
+    <router-link to="/teachers">Teachers</router-link>
+    <router-link to="/courses">Courses</router-link>
   </Navbar>
   <router-view/>
 </template>

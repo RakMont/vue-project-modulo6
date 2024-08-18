@@ -9,7 +9,7 @@ import './assets/styles/styles.scss'
 import {
     createBootstrap, BButton, BModal, BTable, BTableLite, BTableSimple,
     BThead, BTfoot, BTbody, BTr, BTh, BTd, BForm, BFormGroup, BFormInput,
-    BFormSelect, BFormTextarea 
+    BFormSelect, BFormTextarea ,BFormCheckboxGroup, BFormSelectOption 
 } from 'bootstrap-vue-next'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
@@ -41,6 +41,8 @@ app.component('BFormGroup', BFormGroup);
 app.component('BFormInput', BFormInput);
 app.component('BFormSelect', BFormSelect);
 app.component('BFormTextarea', BFormTextarea);
+app.component('BFormCheckboxGroup', BFormCheckboxGroup);
+app.component('BFormSelectOption', BFormSelectOption)
 app.mount('#app')
 
 //createApp(App).use(store).use(router).mount('#app')

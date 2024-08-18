@@ -51,7 +51,7 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 //const foods = [{text: 'Select One', value: null}, 'Carrots', 'Beans', 'Tomatoes', 'Corn']
 
 export default {
-  props: ['updateStudent'],
+  props: ['updateTeacher'],
     data() {
       return {
           form: {
@@ -61,8 +61,7 @@ export default {
             birthDate: '',
             address:'',
             phone: '',
-        },
-            foods:[{text: 'Select One', value: null}, 'Carrots', 'Beans', 'Tomatoes', 'Corn']
+        }
       }
     },
     methods: {

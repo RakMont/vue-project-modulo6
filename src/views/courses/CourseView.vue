@@ -1,32 +1,43 @@
 <template>
    <div class="content">
-        <div>TEACHERS</div>
+        <div>Courses</div>
 
     <hr>
-    <BButton class="button" variant="success" @click="showNewModal = true">ADD TEACHER</BButton>
-    <BModal v-if="showNewModal" v-model="showNewModal" hide-footer centered title="New Teacher">
-      <FormTeacherView @on-register="onRegister($event)"></FormTeacherView></BModal>
+    <BButton class="button" variant="success" @click="showNewModal = true">ADD NEW COURSE</BButton>
+    <BModal v-if="showNewModal" v-model="showNewModal" hide-footer centered title="New Course">
+      <FormCourseView @on-register="onRegister($event)"></FormCourseView></BModal>
     
-      <BModal v-if="showEditModal" v-model="showEditModal" hide-footer centered title="Edit Teacher">
-      <FormTeacherView :updateTeacher="updateTeacher" @on-update="onUpdate($event)"></FormTeacherView></BModal>
+      <BModal v-if="showEditModal" v-model="showEditModal" hide-footer centered title="Edit Course">
+      <FormCourseView :updateCourse="updateCourse" @on-update="onUpdate($event)"></FormCourseView></BModal>
       <p></p>
     <BTableSimple responsive bordered>
       <BThead variant="dark">
         <BTr>
           <BTh>#</BTh>
-          <BTh>Name</BTh>
-          <BTh>Subjects</BTh>
+          <BTh>Subject</BTh>
+          <BTh>Parallel Number</BTh>
+          <BTh>Begins At</BTh>
+          <BTh>Ends At</BTh>
+          <BTh>Teacher</BTh>
+          <BTh>N.Students</BTh>
           <BTh>Actions</BTh>
         </BTr>
       </BThead>
       <BTbody>
         <BTr v-for="(item, index) in itemList" :key="index">
           <BTd>{{ 1 + index }}</BTd>
-          <BTd>{{item.name}} {{ item.lastName }}</BTd>
-          <BTd>{{item.subjectsSelected}}</BTd>
+          <BTd>{{item.name}}</BTd>
+          <BTd>P-{{item.pNumber}}</BTd>
+          <BTd>{{item.beginsAt}}</BTd>
+          <BTd>{{item.endsAt}}</BTd>
+          <BTd>{{item.teacher.name}}</BTd>
+          <BTd>{{item.studentsIds.length}}</BTd>
           <BTd>
-            <BButton variant="primary" size="sm" style="margin-right: 15px;" @click="editTeacher(item)">Edit</BButton>
-            <BButton variant="danger" size="sm" @click="deleteStudent(item.id)">Delete</BButton>
+            <BButton variant="primary" size="sm" style="margin-right: 15px;" @click="editCourse(item)">Edit</BButton>
+            <BButton variant="danger" size="sm" style="margin-right: 15px;"  @click="deleteCourse(item.id)">Delete</BButton>
+            <BButton variant="warning" size="sm" @click="enrolledStudents(item.id)">Enrolled students
+</BButton>
+
           </BTd>
         </BTr>
         
@@ -38,16 +49,16 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import FormTeacherView from './FormTeacherView.vue';
+import FormCourseView from './FormCourseView.vue';
 export default {
-  name: 'Teachers',
+  name: 'Course',
     data() {
       return {
         textToSearch: '',
         itemList: [],
         showNewModal: false,
         showEditModal: false,
-        updateTeacher:null,
+        updateCourse:null,
       }
   },
     computed: {
@@ -59,9 +70,9 @@ export default {
     },
     methods: {
      ...mapActions(['increment']),
-        getTeachers() {
+        getCourses() {
             const vm = this;
-            this.axios.get(this.baseUrl + "/teachers?_q=" + this.textToSearch)
+            this.axios.get(this.baseUrl + "/courses?_expand=teacher&q=" + this.textToSearch)
                 .then(function (response) {
                     console.log(response);
                     vm.itemList = response.data;
@@ -72,24 +83,24 @@ export default {
       },
        onRegister(event) {
             console.log("on register");
-            this.getTeachers();
+            this.getCourses();
             this.showNewModal = false;
             this.$toast.show('Registro exitoso', 'success');
       },
       onUpdate(event) {
         console.log("on update");
-        this.getTeachers();
+        this.getCourses();
         this.showEditModal = false;
-        this.updateTeacher = null;
+        this.updateCourse = null;
         this.$toast.show('Actualizacion exitosa', 'success');
       },
-      deleteStudent(id) {
+      deleteCourse(id) {
 
         if (confirm("¿Esta Seguro de eliminar el registro?")) {
                const vm = this;
-          this.axios.delete(this.baseUrl + "/teachers/" + id)
+          this.axios.delete(this.baseUrl + "/courses/" + id)
                  .then(function (response) {
-                    vm.getTeachers();
+                    vm.getCourses();
                     vm.$toast.show("Registro eliminado.", "danger");
                   })
                  .catch(function (error) {
@@ -97,13 +108,16 @@ export default {
                   });
             }
       },
-      editTeacher(teacher) {
-        this.updateTeacher = teacher
+      editCourse(teacher) {
+        this.updateCourse = teacher
         this.showEditModal = true;
+        },
+      enrolledStudents(id) {
+        
       }
   },
     mounted() {
-      this.getTeachers();
+      this.getCourses();
     },
     components: {
 
