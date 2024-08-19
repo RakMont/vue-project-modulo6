@@ -1,7 +1,9 @@
  Practica1 Vue3
  Nombre(s) de integrante(s):-
   Raquel Montero
-  
+
  Pasos para iniciar el proyecto
  1) npm install
  2) npm run serve
+ 3) cd db
+ 4) json-server --watch db.json --port 4000
