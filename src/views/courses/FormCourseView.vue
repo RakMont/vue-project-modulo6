@@ -25,9 +25,9 @@
     <BButton type="submit" style="float: right" variant="primary">Save</BButton>
   </BForm>
 
-  <p class="mt-3" header="Form Data Result">
+  <!-- <p class="mt-3" header="Form Data Result">
     <pre class="m-0">{{ form }}</pre>
-  </p>
+  </p>-->
   </div>
 </template>
 
@@ -44,7 +44,6 @@ export default {
                 beginsAt: '',
                 endsAt: '',
                 teacherId: '',
-                studentsIds:[]
           },
           teachersList: [],
           subjectsOptions: [ 'Science','Math'

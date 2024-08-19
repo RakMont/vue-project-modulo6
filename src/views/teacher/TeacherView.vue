@@ -41,7 +41,7 @@
         <BTr v-for="(item, index) in itemList" :key="index">
           <BTd>{{ 1 + index }}</BTd>
           <BTd>{{item.name}} {{ item.lastName }}</BTd>
-          <BTd>{{item.subjectsSelected}}</BTd>
+          <BTd><span style="font-weight: bold; margin-right: 8px; color: darkgray;" v-for="sub in item.subjectsSelected">{{ sub }} | </span></BTd>
           <BTd>
             <BButton variant="primary" size="sm" style="margin-right: 15px;" @click="editTeacher(item)">Edit</BButton>
             <BButton variant="danger" size="sm" @click="deleteStudent(item.id)">Delete</BButton>

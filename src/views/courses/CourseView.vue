@@ -46,7 +46,6 @@
           <BTh>Begins At</BTh>
           <BTh>Ends At</BTh>
           <BTh>Teacher</BTh>
-          <BTh>N.Students</BTh>
           <BTh>Actions</BTh>
         </BTr>
       </BThead>
@@ -58,7 +57,6 @@
           <BTd>{{item.beginsAt}}</BTd>
           <BTd>{{item.endsAt}}</BTd>
           <BTd>{{item.teacher.name}}</BTd>
-          <BTd>{{item.studentsIds.length}}</BTd>
           <BTd>
             <BButton variant="primary" size="sm" style="margin-right: 15px;" @click="editCourse(item)">Edit</BButton>
             <BButton variant="danger" size="sm" style="margin-right: 15px;"  @click="deleteCourse(item.id)">Delete</BButton>
@@ -151,7 +149,7 @@ export default {
         this.showEditModal = true;
         },
       enrolledStudents(id) {
-        
+         this.$router.push("/course/"+id+"/students");
         },
         getTeachersList() {
         const vm = this;
