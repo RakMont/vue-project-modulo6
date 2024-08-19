@@ -125,14 +125,6 @@
       "address": "Street7",
       "phone": "465465465",
       "id": 14
-    },
-    {
-      "name": "Economics",
-      "pNumber": "2",
-      "beginsAt": "2024-02-12",
-      "endsAt": "2024-12-12",
-      "teacherId": 1,
-      "id": 15
     }
   ],
   "teachers": [

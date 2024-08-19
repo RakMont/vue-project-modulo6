@@ -1,6 +1,10 @@
 <template>
    <div class="content">
-        <div>TEACHERS</div>
+        <div class="content-header">TEACHERS
+          <BButton @click="search()" variant="light" class="btn btn-lith" style="float:right">Search</BButton>
+            <BFormInput class="search-input" placeholder="Search here"  type="search" style="float:right" v-model="textToSearch" @search="search()"/>
+       
+        </div>
 
     <hr>
     <BButton class="button" variant="success" @click="showNewModal = true">ADD TEACHER</BButton>
@@ -61,7 +65,7 @@ export default {
      ...mapActions(['increment']),
         getTeachers() {
             const vm = this;
-            this.axios.get(this.baseUrl + "/teachers?_q=" + this.textToSearch)
+            this.axios.get(this.baseUrl + "/teachers?q=" + this.textToSearch)
                 .then(function (response) {
                     console.log(response);
                     vm.itemList = response.data;
@@ -100,7 +104,10 @@ export default {
       editTeacher(teacher) {
         this.updateTeacher = teacher
         this.showEditModal = true;
-      }
+      },
+      search() {
+            this.getTeachers();
+        },
   },
     mounted() {
       this.getTeachers();

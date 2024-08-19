@@ -1,8 +1,10 @@
 
 <template>
    <div class="content">
-        <div>STUDENTS</div>
-
+        <div class="content-header"> STUDENTS
+            <BButton @click="search()" variant="light" class="btn btn-lith" style="float:right">Search</BButton>
+            <BFormInput class="search-input" placeholder="Search here"  type="search" style="float:right" v-model="textToSearch" @search="search()"/>
+        </div>
     <hr>
     <BButton class="button" variant="success" @click="showNewModal = true">ADD STUDENT</BButton>
     <BModal v-if="showNewModal" v-model="showNewModal" hide-footer centered title="New Student">
@@ -36,15 +38,6 @@
         </BTr>
         
       </BTbody>
-      <!-- <BTfoot>
-        <BTr>
-          <BTh sticky-column>Footer</BTh>
-          <BTh>Heading 1</BTh>
-          <BTh>Heading 2</BTh>
-          <BTh>Heading 3</BTh>
-          <BTh>Heading 4</BTh>
-        </BTr>
-      </BTfoot>-->
     </BTableSimple>
   </div>
   
@@ -53,6 +46,7 @@
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
 import FormStudentView from './FormStudentView.vue';
+import { BButton } from 'bootstrap-vue-next';
 export default {
   name: 'Students',
     data() {
@@ -75,7 +69,7 @@ export default {
      ...mapActions(['increment']),
         getStudents() {
             const vm = this;
-            this.axios.get(this.baseUrl + "/students?_q=" + this.textToSearch)
+            this.axios.get(this.baseUrl + "/students?q=" + this.textToSearch)
                 .then(function (response) {
                     console.log(response);
                     vm.itemList = response.data;
@@ -114,7 +108,10 @@ export default {
       editStudent(student) {
         this.updateStudent = student
         this.showEditModal = true;
-      }
+      },
+      search() {
+            this.getStudents();
+        },
   },
     mounted() {
       this.getStudents();
@@ -129,9 +126,5 @@ import { ref } from 'vue';
 const show = ref(false);
 </script>
 <style>
- .content{
-  width: 90%;
-  margin: auto;
-  padding-top: 24px;
- }
+ 
 </style>

@@ -1,6 +1,9 @@
 <template>
    <div class="content">
-        <div>Courses</div>
+        <div class="content-header">COURSES
+            <BButton @click="search()" variant="light" class="btn btn-lith" style="float:right">Search</BButton>
+            <BFormInput class="search-input" placeholder="Search here"  type="search" style="float:right" v-model="textToSearch" @search="search()"/>
+        </div>
 
     <hr>
     <BButton class="button" variant="success" @click="showNewModal = true">ADD NEW COURSE</BButton>
@@ -114,7 +117,10 @@ export default {
         },
       enrolledStudents(id) {
         
-      }
+        },
+      search() {
+            this.getCourses();
+        },
   },
     mounted() {
       this.getCourses();

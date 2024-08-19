@@ -12,3 +12,17 @@ h1 {
     text-align: center;
     color: #42b983;
  }
+ .content{
+    .span{
+        color: #42b983;
+        font-weight: bold;
+    }
+    .search-input{
+    width: 300px!important;
+    }
+    .content-header{
+        font-weight: bold;
+        color: #42b983;
+        font-size: 24px;
+    }
+ }
