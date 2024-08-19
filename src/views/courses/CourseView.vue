@@ -1,8 +1,32 @@
 <template>
    <div class="content">
-        <div class="content-header">COURSES
+        <div class="content-header"><span>COURSES</span>
             <BButton @click="search()" variant="light" class="btn btn-lith" style="float:right">Search</BButton>
             <BFormInput class="search-input" placeholder="Search here"  type="search" style="float:right" v-model="textToSearch" @search="search()"/>
+            
+            <div style="width: 500px; float: right; display: flex;">
+
+                <!-- <label for="fecha"> Fecha: </label>
+                <BFormInput id="fecha" type="date"  v-model="filter.fecha" placeholder="Enterthe end date" />
+-->
+                <label style="margin-right: 8px; margin: auto;" for="subject"> Subject: </label>
+                <BFormSelect  id="input-3" v-model="filter.subject" style="width: 150px;">
+                 <BFormSelectOption value="">All</BFormSelectOption>
+                 <BFormSelectOption  :value="subject" v-for="(subject, index) in subjectsOptions" 
+                    :key="`teacher-${index}`">{{ subject }}
+                    </BFormSelectOption>
+                </BFormSelect>
+                
+                <label style="margin-right: 8px; margin: auto;" for="subject"> Teacher: </label>
+                <BFormSelect style="width: 150px;" id="input-3" v-model="filter.teacherId">
+                    <BFormSelectOption value="">All</BFormSelectOption>
+                    <BFormSelectOption  :value="teacher.id" v-for="(teacher, index) in teachersList" 
+                    :key="`teacher-${index}`">{{ teacher.name }}
+                    </BFormSelectOption>
+    </BFormSelect>
+                
+                <BButton type="submit" @click="filterText()" variant="light" >Filter</BButton>
+            </div>
         </div>
 
     <hr>
@@ -56,12 +80,23 @@ import FormCourseView from './FormCourseView.vue';
 export default {
   name: 'Course',
     data() {
-      return {
-        textToSearch: '',
-        itemList: [],
-        showNewModal: false,
-        showEditModal: false,
-        updateCourse:null,
+        return {
+            textToSearch: '',
+            textToFilter: '',
+            itemList: [],
+            teachersList:[],
+            showNewModal: false,
+            showEditModal: false,
+            updateCourse: null,
+            filter: {
+                fecha: null,
+                teacherId: '',
+                subject:''
+            },
+            subjectsOptions: ['Science','Math'
+          , 'History', 'Geography', 'French', 'Computer Science', 'Physics'
+            , 'Chemistry', 'Biology', 'Psychology', 'Anthropology', 'Art', 'Music', 'Literature', 'Economics',
+              'Political Science'],
       }
   },
     computed: {
@@ -75,7 +110,7 @@ export default {
      ...mapActions(['increment']),
         getCourses() {
             const vm = this;
-            this.axios.get(this.baseUrl + "/courses?_expand=teacher&q=" + this.textToSearch)
+            this.axios.get(this.baseUrl + "/courses?_expand=teacher" + this.textToFilter + "&q=" + this.textToSearch)
                 .then(function (response) {
                     console.log(response);
                     vm.itemList = response.data;
@@ -118,12 +153,33 @@ export default {
       enrolledStudents(id) {
         
         },
+        getTeachersList() {
+        const vm = this;
+        this.axios.get(this.baseUrl + "/teachers")
+            .then(function (response) {
+            vm.teachersList = response.data;
+            })
+            .catch(function (error) {
+            console.error(error);
+            });
+        },
       search() {
+            this.getCourses();
+        },
+        filterText() {
+            this.textToFilter = '';
+            if (this.filter.subject != '') {
+                this.textToFilter += "&name=" + this.filter.subject;
+            }
+            if (this.filter.teacherId != null && this.filter.teacherId != '') {
+                this.textToFilter += "&teacherId=" + this.filter.teacherId;
+            }
             this.getCourses();
         },
   },
     mounted() {
-      this.getCourses();
+        this.getCourses();
+        this.getTeachersList();
     },
     components: {
 

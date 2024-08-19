@@ -1,7 +1,7 @@
 
 <template>
    <div class="content">
-        <div class="content-header"> STUDENTS
+        <div class="content-header"> <span>STUDENTS</span>
             <BButton @click="search()" variant="light" class="btn btn-lith" style="float:right">Search</BButton>
             <BFormInput class="search-input" placeholder="Search here"  type="search" style="float:right" v-model="textToSearch" @search="search()"/>
         </div>

@@ -1,9 +1,23 @@
 <template>
    <div class="content">
-        <div class="content-header">TEACHERS
-          <BButton @click="search()" variant="light" class="btn btn-lith" style="float:right">Search</BButton>
+        <div class="content-header"><span>TEACHERS</span>
+          <BButton @click="search()" variant="light" style="float:right">Search</BButton>
             <BFormInput class="search-input" placeholder="Search here"  type="search" style="float:right" v-model="textToSearch" @search="search()"/>
        
+            <div style="width: 300px; float: right; display: flex;">
+
+                <!-- <label for="fecha"> Fecha: </label>
+                <BFormInput id="fecha" type="date"  v-model="filter.fecha" placeholder="Enterthe end date" />
+-->
+                <label style="margin-right: 8px; margin: auto;" for="subject"> Subject: </label>
+                <BFormSelect  id="input-3" v-model="filter.subject" style="width: 150px;">
+                  <BFormSelectOption value="">All</BFormSelectOption>
+                  <BFormSelectOption  :value="subject" v-for="(subject, index) in subjectsOptions" 
+                      :key="`teacher-${index}`">{{ subject }}
+                      </BFormSelectOption>
+                </BFormSelect>                
+                <BButton type="submit" @click="filterText()" variant="light" >Filter</BButton>
+            </div>
         </div>
 
     <hr>
@@ -48,10 +62,19 @@ export default {
     data() {
       return {
         textToSearch: '',
+        textToFilter:'',
         itemList: [],
         showNewModal: false,
         showEditModal: false,
-        updateTeacher:null,
+        updateTeacher: null,
+        subjectsOptions: ['Science','Math'
+          , 'History', 'Geography', 'French', 'Computer Science', 'Physics'
+            , 'Chemistry', 'Biology', 'Psychology', 'Anthropology', 'Art', 'Music', 'Literature', 'Economics',
+              'Political Science'],
+        filter: {
+                fecha: null,
+                subject:''
+            }
       }
   },
     computed: {
@@ -65,7 +88,7 @@ export default {
      ...mapActions(['increment']),
         getTeachers() {
             const vm = this;
-            this.axios.get(this.baseUrl + "/teachers?q=" + this.textToSearch)
+            this.axios.get(this.baseUrl + "/teachers?q=" + (this.textToFilter!= '' ? this.textToFilter : this.textToSearch))
                 .then(function (response) {
                     console.log(response);
                     vm.itemList = response.data;
@@ -107,6 +130,12 @@ export default {
       },
       search() {
             this.getTeachers();
+      },
+        filterText() {
+          console.log("filter")
+          this.textToFilter = this.filter.subject;
+          this.textToSearch = '';
+          this.getTeachers();
         },
   },
     mounted() {
